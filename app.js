@@ -13,11 +13,14 @@ app.use(express.json());
 app.use(express.static("./dist"));
 app.use(
   cors({
-    credentials: true,
     origin: "https://parisairwaysgunaguna.netlify.app",
+    methods: ["GET", "POST"],
   })
 );
-app.options("*", cors());
+app.options(
+  "https://parisairwaysgunaguna.netlify.app",
+  cors({ preflightContinue: true })
+);
 app.use(upload.single("photo"));
 app.use(express.static("./png"));
 app.use(cookieParser());
