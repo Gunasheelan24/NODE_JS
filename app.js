@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.static("./dist"));
 app.use(
   cors({
+     credentials: true,
     origin: "https://parisairwaysgunaguna.netlify.app",
     methods: ["GET", "POST"],
   })
